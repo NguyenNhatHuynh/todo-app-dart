@@ -1,16 +1,34 @@
-# app_todo_xd
+# ToDo List App
 
-A new Flutter project.
+## Overview
+Welcome to the ToDo List App! This project is a modern mobile application developed using [Flutter](https://docs.flutter.dev/get-started/) and [Dart](https://dart.dev/). The app is designed to help users efficiently manage their tasks and boost productivity through a clean and intuitive interface.
 
+## Features
+* Cross-platform Support: Runs seamlessly on both iOS and Android devices.
+* User-friendly Interface: Clean and intuitive design for easy task management.
+* Task Categories: Organize tasks into different categories for better organization.
+* Due Dates and Reminders: Set due dates and reminders to never miss a deadline.
+* Priority Levels: Assign priority levels to tasks to focus on what's important.
+* Search Functionality: Quickly find tasks with the built-in search feature.
+* Offline Support: Access and manage your tasks even without an internet connection.
+* Dark Mode: Reduce eye strain with the dark mode option.
+
+## Screenshots
+
+  
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Prerequisites
+Ensure you have the following installed on your development machine:
 
-A few resources to get you started if this is your first Flutter project:
+* [Flutter SDK](https://docs.flutter.dev/get-started/)
+* [Dart](https://dart.dev/)
+* An IDE like [Visual Studio Code](https://code.visualstudio.com/download) or [Android Studio](https://developer.android.com/)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Installation
+1. Clone the repository
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+# Author👨‍💻 
+### I would appreciate if you could give this repository a star 🌟. It would help others to discover this. Thank you for your support 👨‍💻
