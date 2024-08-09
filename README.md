@@ -28,3 +28,7 @@ Ensure you have the following installed on your development machine:
 ### Installation
 1. Clone the repository
 
+
+
+# Author👨‍💻 
+### I would appreciate if you could give this repository a star 🌟. It would help others to discover this. Thank you for your support 👨‍💻
