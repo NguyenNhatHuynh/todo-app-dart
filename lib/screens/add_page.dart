@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class AddToDoPage extends StatefulWidget {
   const AddToDoPage({super.key});
@@ -34,7 +37,7 @@ class _AddToDoPageState extends State<AddToDoPage> {
           ),
           SizedBox(height: 20),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: submitData,
             child: Text('Submit'),
           )
         ],
@@ -42,16 +45,30 @@ class _AddToDoPageState extends State<AddToDoPage> {
     );
   }
 
-  void submitData() {
+  Future<void> submitData() async {
     // Get the data from form
     final title = titleController.text;
     final description = descriptionController.text;
     final body = {
       "title": title,
       "description": description,
-      "is_completed": false
+      "is_completed": false,
     };
     // Submit data to the server
+    final url = 'https://api.nstack.in/v1/todos';
+    final uri = Uri.parse(url);
+    final response = await http.post(
+      uri,
+      body: jsonEncode(body),
+      headers: {'Content-Type': 'application/json'},
+    );
+
     // Show success or fail message based on status
+    if (response.statusCode == 201) {
+      print('Create Success');
+    } else {
+      print('Create Failed');
+      print(response.body);
+    }
   }
 }
