@@ -44,8 +44,13 @@ class _AddToDoPageState extends State<AddToDoPage> {
 
   void submitData() {
     // Get the data from form
-    final tile = titleController.text;
+    final title = titleController.text;
     final description = descriptionController.text;
+    final body = {
+      "title": title,
+      "description": description,
+      "is_completed": false
+    };
     // Submit data to the server
     // Show success or fail message based on status
   }
