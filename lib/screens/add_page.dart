@@ -65,10 +65,27 @@ class _AddToDoPageState extends State<AddToDoPage> {
 
     // Show success or fail message based on status
     if (response.statusCode == 201) {
-      print('Create Success');
+      titleController.text = '';
+      descriptionController.text = '';
+      showSuccessMessage('Create Success');
     } else {
-      print('Create Failed');
-      print(response.body);
+      showErrorMessage('Create Failed');
     }
+  }
+
+  void showSuccessMessage(String message) {
+    final snackBar = SnackBar(content: Text(message));
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
+  void showErrorMessage(String message) {
+    final snackBar = SnackBar(
+      content: Text(
+        message,
+        style: TextStyle(color: Colors.white),
+      ),
+      backgroundColor: Colors.red,
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 }
