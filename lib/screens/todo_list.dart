@@ -12,6 +12,7 @@ class ToDoListPage extends StatefulWidget {
 }
 
 class _ToDoListPageState extends State<ToDoListPage> {
+  bool isLoading = true;
   List items = [];
 
   @override
@@ -26,18 +27,46 @@ class _ToDoListPageState extends State<ToDoListPage> {
       appBar: AppBar(
         title: Text('Todo List'),
       ),
-      body: RefreshIndicator(
-        onRefresh: fetchTodo,
-        child: ListView.builder(
-          itemCount: items.length,
-          itemBuilder: (context, index) {
-            final item = items[index] as Map;
-            return ListTile(
-              leading: CircleAvatar(child: Text('${index + 1}')),
-              title: Text(item['title']),
-              subtitle: Text(item['description']),
-            );
-          },
+      body: Visibility(
+        visible: isLoading,
+        child: Center(child: CircularProgressIndicator()),
+        replacement: RefreshIndicator(
+          onRefresh: fetchTodo,
+          child: ListView.builder(
+            itemCount: items.length,
+            itemBuilder: (context, index) {
+              final item = items[index] as Map;
+              final id = item['_id'] as String;
+
+              return ListTile(
+                  leading: CircleAvatar(child: Text('${index + 1}')),
+                  title: Text(item['title']),
+                  subtitle: Text(item['description']),
+                  trailing: PopupMenuButton(
+                    onSelected: (value) {
+                      if (value == 'edit') {
+                        // Open Edit Page
+                        navigateToEditPage();
+                      } else if (value == 'delete') {
+                        // Delete and Remove the item
+                        deleteById(id);
+                      }
+                    },
+                    itemBuilder: (context) {
+                      return [
+                        PopupMenuItem(
+                          child: Text('Edit'),
+                          value: 'edit',
+                        ),
+                        PopupMenuItem(
+                          child: Text('Delete'),
+                          value: 'delete',
+                        ),
+                      ];
+                    },
+                  ));
+            },
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
@@ -47,11 +76,40 @@ class _ToDoListPageState extends State<ToDoListPage> {
     );
   }
 
-  void navigateToAddPage() {
+  void navigateToEditPage() {
     final route = MaterialPageRoute(
       builder: (context) => AddToDoPage(),
     );
     Navigator.push(context, route);
+  }
+
+  Future<void> navigateToAddPage() async {
+    final route = MaterialPageRoute(
+      builder: (context) => AddToDoPage(),
+    );
+    await Navigator.push(context, route);
+    setState(() {
+      isLoading = true;
+    });
+    fetchTodo();
+  }
+
+  Future<void> deleteById(String id) async {
+    // Delete the item
+    final url = 'https://api.nstack.in/v1/todos/$id';
+    final uri = Uri.parse(url);
+    final response = await http.delete(uri);
+    if (response.statusCode == 200) {
+      // Remove item from the list
+      final filtered = items.where((element) => element['_id'] != id).toList();
+      setState(() {
+        items = filtered;
+      });
+    } else {
+      // Show Error
+      showErrorMessage('Delete Failed');
+    }
+    // Remove item from the List
   }
 
   Future<void> fetchTodo() async {
@@ -64,8 +122,20 @@ class _ToDoListPageState extends State<ToDoListPage> {
       setState(() {
         items = result;
       });
-    } else {
-      // Show error
     }
+    setState(() {
+      isLoading = false;
+    });
+  }
+
+  void showErrorMessage(String message) {
+    final snackBar = SnackBar(
+      content: Text(
+        message,
+        style: TextStyle(color: Colors.white),
+      ),
+      backgroundColor: Colors.red,
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 }
