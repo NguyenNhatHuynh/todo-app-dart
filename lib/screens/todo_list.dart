@@ -46,7 +46,7 @@ class _ToDoListPageState extends State<ToDoListPage> {
                     onSelected: (value) {
                       if (value == 'edit') {
                         // Open Edit Page
-                        navigateToEditPage();
+                        navigateToEditPage(item);
                       } else if (value == 'delete') {
                         // Delete and Remove the item
                         deleteById(id);
@@ -76,9 +76,9 @@ class _ToDoListPageState extends State<ToDoListPage> {
     );
   }
 
-  void navigateToEditPage() {
+  void navigateToEditPage(Map item) {
     final route = MaterialPageRoute(
-      builder: (context) => AddToDoPage(),
+      builder: (context) => AddToDoPage(todo: item),
     );
     Navigator.push(context, route);
   }
