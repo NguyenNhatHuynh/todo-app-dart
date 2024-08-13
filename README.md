@@ -26,8 +26,7 @@ Ensure you have the following installed on your development machine:
 * An IDE like [Visual Studio Code](https://code.visualstudio.com/download) or [Android Studio](https://developer.android.com/)
 
 ### Installation
-1. Clone the repository
-
+<!--- 1. Clone the repository --->
 
 
 # Author👨‍💻 
