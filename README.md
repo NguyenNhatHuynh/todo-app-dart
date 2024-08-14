@@ -13,7 +13,9 @@ Welcome to the ToDo List App! This project is a modern mobile application develo
 * Offline Support: Access and manage your tasks even without an internet connection. [*]
 * Dark Mode: Reduce eye strain with the dark mode option. [*]
 
-## Screenshots
+<!--- ## Screenshots --->
+<!--- Anh Bo Vo Day --->
+<!--- ## Screenshots --->
 
   
 ## Getting Started
