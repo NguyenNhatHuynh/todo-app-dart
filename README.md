@@ -27,9 +27,6 @@ Ensure you have the following installed on your development machine:
 * [Dart](https://dart.dev/)
 * An IDE like [Visual Studio Code](https://code.visualstudio.com/download) or [Android Studio](https://developer.android.com/)
 
-### Installation
-<!--- 1. Clone the repository --->
-
 
 # Author👨‍💻 
 ### I would appreciate if you could give this repository a star 🌟. It would help others to discover this. Thank you for your support 👨‍💻
