@@ -6,7 +6,7 @@ Welcome to the ToDo List App! This project is a modern mobile application develo
 ## Features
 * Cross-platform Support: Runs seamlessly on both iOS and Android devices.
 * User-friendly Interface: Clean and intuitive design for easy task management.
-* Task Categories: Organize tasks into different categories for better organization. [*]
+* Task Categories: Organize tasks into different categories for better organization. [**]
 * Due Dates and Reminders: Set due dates and reminders to never miss a deadline. [*]
 * Priority Levels: Assign priority levels to tasks to focus on what's important. [*]
 * Search Functionality: Quickly find tasks with the built-in search feature. [*]
