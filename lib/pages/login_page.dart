@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:app_todo_xd/components/my_textfield.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  LoginPage({super.key});
+
+  // text editing controllers
+  final usernameController = TextEditingController();
+  final passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -35,13 +39,40 @@ class LoginPage extends StatelessWidget {
                 const SizedBox(height: 25),
 
                 // usename textField
-                MyTextfield(),
+                MyTextfield(
+                  controller: usernameController,
+                  hinText: 'Username',
+                  obscureText: false,
+                ),
 
                 const SizedBox(height: 10),
 
                 // Password textfield
-                MyTextfield(),
+                MyTextfield(
+                  controller: passwordController,
+                  hinText: 'Password',
+                  obscureText: true,
+                ),
+
+                const SizedBox(height: 10),
+
                 // forgot password?
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text(
+                        'Forgot Password?',
+                        style: TextStyle(color: Colors.grey[600]),
+                      ),
+                    ],
+                  ),
+                ),
+
+                const SizedBox(height: 25),
+
+                // sign in buttons
 
                 // or continue with
 
