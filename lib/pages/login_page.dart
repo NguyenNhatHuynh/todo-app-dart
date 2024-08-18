@@ -1,3 +1,4 @@
+import 'package:app_todo_xd/components/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:app_todo_xd/components/my_textfield.dart';
 
@@ -7,6 +8,9 @@ class LoginPage extends StatelessWidget {
   // text editing controllers
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
+
+  // sign user in method
+  void signUserIn() {}
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +77,11 @@ class LoginPage extends StatelessWidget {
                 const SizedBox(height: 25),
 
                 // sign in buttons
+                MyButton(
+                  onTap: signUserIn,
+                ),
 
+                const SizedBox(height: 25),
                 // or continue with
 
                 // google + apple sign in buttons
