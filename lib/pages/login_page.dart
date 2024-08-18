@@ -27,7 +27,6 @@ class LoginPage extends StatelessWidget {
               const Icon(
                 Icons.lock,
                 size: 100,
-                color: Colors.black,
               ),
 
               const SizedBox(height: 50),
@@ -112,7 +111,7 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 50),
+              const SizedBox(height: 40),
 
               // google + apple sign in buttons
               Row(
@@ -128,7 +127,7 @@ class LoginPage extends StatelessWidget {
                 ],
               ),
 
-              const SizedBox(height: 30),
+              const SizedBox(height: 10),
 
               // not a member ? register now
               Row(
